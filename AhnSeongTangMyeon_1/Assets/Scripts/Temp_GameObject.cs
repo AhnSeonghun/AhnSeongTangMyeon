@@ -30,21 +30,25 @@ public class Temp_GameObject : MonoBehaviour
 
     void MoveCube()
     {
-        if(Input.GetKey(KeyCode.UpArrow)) // 키가 눌러져 있을 때
-        {
-            transform.position += new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
-        }
-        if(Input.GetKey(KeyCode.DownArrow)) // 키가 눌러져 있을 때
-        {
-            transform.position += new Vector3(0.0f, -moveSpeed * Time.deltaTime, 0.0f);
-        }
-        if(Input.GetKey(KeyCode.LeftArrow)) // 키가 눌러져 있을 때
-        {
-            transform.position += new Vector3(-moveSpeed * Time.deltaTime, 0.0f, 0.0f);
-        }
-        if(Input.GetKey(KeyCode.RightArrow)) // 키가 눌러져 있을 때
-        {
-            transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
-        }
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+
+        transform.position += move * moveSpeed * Time.deltaTime;
+
+        // if(Input.GetKey(KeyCode.UpArrow)) // 키가 눌러져 있을 때
+        // {
+        //     transform.position += new Vector3(0.0f, moveSpeed * Time.deltaTime, 0.0f);
+        // }
+        // if(Input.GetKey(KeyCode.DownArrow)) // 키가 눌러져 있을 때
+        // {
+        //     transform.position += new Vector3(0.0f, -moveSpeed * Time.deltaTime, 0.0f);
+        // }
+        // if(Input.GetKey(KeyCode.LeftArrow)) // 키가 눌러져 있을 때
+        // {
+        //     transform.position += new Vector3(-moveSpeed * Time.deltaTime, 0.0f, 0.0f);
+        // }
+        // if(Input.GetKey(KeyCode.RightArrow)) // 키가 눌러져 있을 때
+        // {
+        //     transform.position += new Vector3(moveSpeed * Time.deltaTime, 0.0f, 0.0f);
+        // }
     }
 }
