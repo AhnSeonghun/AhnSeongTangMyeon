@@ -9,12 +9,36 @@ public class EnemyController : MonoBehaviour
     public GameObject projectile;           //총알 프리팹 
     public GameObject Pivot;
     public Transform firePoint;             //총알 발사 위치
-    public float fireRate = 1.0f;           //총알 발사 속도 
+    public float fireRate = 1.0f;           //총알 발사 속도
+    
+    public int MAXHP = 3;
+    public int currentHP = 3; 
 
     private Rigidbody body;
     private Transform player;
     private float nextFireTime;
   
+    public GameObject[] dropitems = new GameObject[2];
+
+    public void DropItems()
+    {
+        int RandNumer = Random.Range(0, 100);       // 0 ~ 99의 랜덤 값을 리턴 
+
+        if(RandNumer >= 0 && RandNumer < 50)        // 0 ~ 50 이전까지 50% 확률로 1번째 아이템 드랍
+        {
+            GameObject temp = (GameObject)Instantiate(dropitems[0], transform.position, Quaternion.identity);            
+        }
+        else if (RandNumer >= 50 && RandNumer < 70)  // 50 ~ 70 이전까지 20% 확률로 2번째 아이템 드랍
+        {
+            GameObject temp = (GameObject)Instantiate(dropitems[1], transform.position, Quaternion.identity);
+        }
+        else
+        {
+            //이 외에는 따로 행동 없음 
+        }
+
+    }
+
     void Start()
     {
         body = GetComponent<Rigidbody>();       //지금 오브젝트의 RigidBody를 가져옴
@@ -40,7 +64,12 @@ public class EnemyController : MonoBehaviour
             if(Time.time > nextFireTime) 
             {
                 nextFireTime = Time.time + 1f / fireRate;       //시간대비 쏘는 횟수 
-                Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
+                GameObject temp = (GameObject)Instantiate(projectile, firePoint.transform.position, firePoint.transform.rotation);
+                temp.GetComponent<ProjectileMove>().projectileType = ProjectileMove.PROJECTILETYPE.ENEMY;   //발사체에 적이 쏜 총알이라고 이름을 만들어줌
+            }
+
+            if (firePoint.transform.position.y < -25.0f) {
+                Destroy(this.gameObject);
             }
         }
     }

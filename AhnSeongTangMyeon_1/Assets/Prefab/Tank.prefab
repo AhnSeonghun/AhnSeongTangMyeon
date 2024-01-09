@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8652236571769649575}
   - component: {fileID: 3663269000034793395}
   - component: {fileID: 5215450264606092488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -53,6 +53,9 @@ MonoBehaviour:
   viewCamera: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   body: {fileID: 3663269000034793395}
+  maxHp: 0
+  currentHp: 0
+  currentExp: 0
 --- !u!54 &3663269000034793395
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 636604425071222608}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 3064620805576536283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000035762784}
-  m_LocalPosition: {x: 0, y: 0.19299984, z: -0.418}
+  m_LocalPosition: {x: -0, y: 0.19299984, z: -0.401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9035700220766081190}
   - component: {fileID: 8584718315231559323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankGun
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -233,6 +236,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: tank
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff23595597b0f8345976ae537a244482, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: ff23595597b0f8345976ae537a244482, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -294,6 +305,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d74ee7b71b6e57546b8027435122f765, type: 3}
       propertyPath: m_Name
       value: tankGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d74ee7b71b6e57546b8027435122f765, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: d74ee7b71b6e57546b8027435122f765, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

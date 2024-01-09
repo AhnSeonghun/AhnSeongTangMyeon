@@ -55,6 +55,6 @@ public class SphereCollision : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
-        Debug.Log("TRIGGER EXIT : " + other.gameObject.name);
+        // Debug.Log("TRIGGER EXIT : " + other.gameObject.name);
     }
 }

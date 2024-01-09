@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - ITEM
   - Field
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - player
+  - obj
   - 
   - 
   - 

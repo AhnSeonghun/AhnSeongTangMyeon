@@ -10,8 +10,16 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;            //이동 값
     public Rigidbody body;
 
+    public int maxHp;
+    public int currentHp;
+    public int currentExp;
+
     void Start()
     {
+        maxHp = 25;
+        currentHp = 25;
+        currentExp = 0;
+
         viewCamera = Camera.main;           //스크립트가 시작될때 카메라를 받아온다.
     }    
     void Update()
@@ -31,6 +39,30 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        body.MovePosition(body.position + velocity * Time.fixedDeltaTime * 0.3f);
+        body.MovePosition(body.position + velocity * Time.fixedDeltaTime * 0.5f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {        
+        if (other.gameObject.tag == "ITEM")
+        {     
+            //Trigger 들어온 Item이 Box_HP 일 경우 
+            if(other.gameObject.GetComponent<ItemController>().itemtype == ItemController.ITEMTYPE.HP_ITEM)
+            {
+                currentHp += other.gameObject.GetComponent<ItemController>().amount;        //아이템에 있는 값(amount)을 Hp에 더한다. 
+                if(currentHp > maxHp)   //최대 HP 보다 높아질 경우 
+                {
+                    currentHp = maxHp;  //최대 Hp로 만든다. 
+                }
+            }
+
+            //Trigger 들어온 Item이 Box_Exp 일 경우 
+            if (other.gameObject.GetComponent<ItemController>().itemtype == ItemController.ITEMTYPE.EXP_ITEM)
+            {
+                currentExp += other.gameObject.GetComponent<ItemController>().amount;        //아이템에 있는 값(amount)을 Exp에 더한다. 
+            }
+
+            Destroy(other.gameObject);
+        }
     }
 }

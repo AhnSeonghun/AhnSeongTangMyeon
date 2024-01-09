@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public int MAXHP = 25;
     public int Hp;
     public int Mp;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Hp = 100;
+        Hp = 25;
         Mp = 100;
     }
 

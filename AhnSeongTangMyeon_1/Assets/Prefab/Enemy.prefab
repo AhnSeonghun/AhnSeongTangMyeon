@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 7383319432601033268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.19299984, z: 0.364}
+  m_LocalPosition: {x: -0, y: 0.19299984, z: 0.389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -166,6 +166,11 @@ MonoBehaviour:
   Pivot: {fileID: 6595384498516408361}
   firePoint: {fileID: 1631983267486099822}
   fireRate: 1
+  MAXHP: 3
+  currentHP: 3
+  dropitems:
+  - {fileID: 4029146918091843101, guid: 2e24aa2621465dd44bdaaaaf7659987b, type: 3}
+  - {fileID: 2218075651436758741, guid: 956aba11c0cceaf4489f251c49c54823, type: 3}
 --- !u!1001 &5281291195520038075
 PrefabInstance:
   m_ObjectHideFlags: 0
