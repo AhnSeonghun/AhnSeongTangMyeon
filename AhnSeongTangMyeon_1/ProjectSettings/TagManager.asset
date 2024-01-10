@@ -9,6 +9,7 @@ TagManager:
   - ITEM
   - Field
   - FxTemporaire
+  - Giant
   layers:
   - Default
   - TransparentFX

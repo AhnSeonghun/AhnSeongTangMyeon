@@ -23,7 +23,8 @@ public class ProjectileMove : MonoBehaviour         //총알 클래스 설정
     {
         if (other.gameObject.tag == "Enemy" && projectileType == PROJECTILETYPE.PLAYER)     //Tag 값이 Enemy이고 플레이어가 쐈을때
         {
-            Destroy(this.gameObject);
+            if(this.gameObject.tag != "Giant")
+                Destroy(this.gameObject);
 
             Vector3 point = other.ClosestPoint(transform.position);     //충돌이 일어난 포인트 
             GameObject tempVFX = (GameObject)Instantiate(VFX_Fire_B, point ,Quaternion.identity);   //충돌이 일어난 포인트에 이펙트 추가
